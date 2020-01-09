@@ -26,6 +26,23 @@ mixin _$LoginStore on LoginBase, Store {
     }, _$scaleAtom, name: '${_$scaleAtom.name}_set');
   }
 
+  final _$userAtom = Atom(name: 'LoginBase.user');
+
+  @override
+  User get user {
+    _$userAtom.context.enforceReadPolicy(_$userAtom);
+    _$userAtom.reportObserved();
+    return super.user;
+  }
+
+  @override
+  set user(User value) {
+    _$userAtom.context.conditionallyRunInAction(() {
+      super.user = value;
+      _$userAtom.reportChanged();
+    }, _$userAtom, name: '${_$userAtom.name}_set');
+  }
+
   final _$LoginBaseActionController = ActionController(name: 'LoginBase');
 
   @override
@@ -33,6 +50,16 @@ mixin _$LoginStore on LoginBase, Store {
     final _$actionInfo = _$LoginBaseActionController.startAction();
     try {
       return super.adjustScale(value);
+    } finally {
+      _$LoginBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void login(BuildContext context, String user, String password) {
+    final _$actionInfo = _$LoginBaseActionController.startAction();
+    try {
+      return super.login(context, user, password);
     } finally {
       _$LoginBaseActionController.endAction(_$actionInfo);
     }

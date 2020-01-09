@@ -71,14 +71,21 @@ class LogoImageView extends StatelessWidget {
 }
 
 class BounceAnimation extends StatefulWidget {
+  const BounceAnimation({
+    Key key,
+    @required this.store
+  }) : super(key: key);
+
+  final LoginStore store;
+
   @override
   _BounceAnimationState createState() => _BounceAnimationState();
 }
 
 class _BounceAnimationState extends State<BounceAnimation>
     with SingleTickerProviderStateMixin {
+
   AnimationController _animationController;
-  final _store = LoginStore();
 
   @override
   void initState() {
@@ -92,7 +99,7 @@ class _BounceAnimationState extends State<BounceAnimation>
 
     );
     _animationController.addListener(() {
-      setState(() {});
+      widget.store.adjustScale(_animationController.value);
     });
     _animationController.addStatusListener((AnimationStatus status){
       switch(status){
@@ -120,11 +127,10 @@ class _BounceAnimationState extends State<BounceAnimation>
 
   @override
   Widget build(BuildContext context) {
-    _store.adjustScale(_animationController.value);
     return Center(
         child: Observer(
           builder: (_) => Transform.scale(
-              scale: _store.scale,
+              scale: widget.store.scale,
               child: LogoImageView()
           )
         ),

@@ -17,7 +17,7 @@ class _CarangerClient implements CarangerClient {
   String baseUrl;
 
   @override
-  getUser(user, password) async {
+  login(user, password) async {
     ArgumentError.checkNotNull(user, 'user');
     ArgumentError.checkNotNull(password, 'password');
     const _extra = <String, dynamic>{};

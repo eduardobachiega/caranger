@@ -1,3 +1,4 @@
+import 'package:caranger/model/user.dart';
 import 'package:dio/dio.dart';
 import 'package:caranger/network/caranger/caranger_client.dart';
 
@@ -5,10 +6,13 @@ class CarangerApi {
   CarangerClient _client;
   Dio dio;
 
-  RyuApi() {
+  CarangerApi() {
     dio = Dio();
     dio.interceptors.add(LogInterceptor(responseBody: true));
     _client = CarangerClient(dio);
   }
+
+  Future<User> login(String user, String password) =>
+      _client.login(user, password);
 
 }

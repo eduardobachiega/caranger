@@ -10,6 +10,6 @@ abstract class CarangerClient {
 
   @FormUrlEncoded()
   @POST("user/login")
-  Future<User> getUser(@Field("user") String user,
+  Future<User> login(@Field("user") String user,
       @Field("password") String password);
 }
