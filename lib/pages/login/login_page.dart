@@ -1,6 +1,8 @@
 import 'package:caranger/pages/login/store/login_store.dart';
 import 'package:caranger/pages/login/widget/login_widgets.dart';
+import 'package:caranger/stores/loading_store.dart';
 import 'package:caranger/widget/default_button.dart';
+import 'package:caranger/widget/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
   final focus = FocusNode();
   LoginStore store;
+  LoadingStore loadingStore;
 
   void login(){
     store.login(context, emailController.text, passwordController.text);
@@ -26,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     store = Provider.of<LoginStore>(context);
+    loadingStore = Provider.of<LoadingStore>(context);
 
     return Scaffold(
         body: Padding(
@@ -36,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              BounceAnimation(store: store),
+              BounceAnimation(store: loadingStore, imageSize: 200,),
               Divider(color: Colors.transparent, height: 50),
               EmailTextField(emailController: emailController, focus: focus),
               Divider(),

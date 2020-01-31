@@ -1,4 +1,5 @@
 import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/pages/menu/tabs/home/widget/home_widgets.dart';
 import 'package:caranger/widget/circle_imageview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,7 @@ class HomeTab extends StatelessWidget {
     TimeOfDay now = TimeOfDay.now();
     if (now.hour < 12)
       return 'Bom dia,';
-    else if (now.hour < 18)
-      return 'Boa tarde,';
+    else if (now.hour < 18) return 'Boa tarde,';
 
     return 'Boa noite,';
   }
@@ -63,74 +63,20 @@ class HomeTab extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold)),
                     Divider(color: Colors.transparent, height: 10),
-                    Row(
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage('logo.png'),
-                          height: 50,
-                          width: 50,
-                        ),
-                        Container(
-                          width: 25,
-                          color: Colors.transparent,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text('${store.user.cars.length}',
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold)),
-                            Text('veículos cadastrados')
-                          ],
-                        ),
-                      ],
-                    ),
+                    DashItem(
+                        imageName: 'logo.png',
+                        title: '${store.user.cars.length}',
+                        subtitle: 'veículos cadastrados'),
                     Divider(color: Colors.transparent, height: 20),
-                    Row(
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage('fuel.png'),
-                          height: 50,
-                          width: 50,
-                        ),
-                        Container(
-                          width: 25,
-                          color: Colors.transparent,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text('R\$\ 250,00',
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold)),
-                            Text('gastos com combustíveis')
-                          ],
-                        ),
-                      ],
-                    ),
+                    DashItem(
+                        imageName: 'fuel.png',
+                        title: 'R\$\ 250,00',
+                        subtitle: 'gastos com combustíveis'),
                     Divider(color: Colors.transparent, height: 20),
-                    Row(
-                      children: <Widget>[
-                        Image(
-                          image: AssetImage('tools.png'),
-                          height: 50,
-                          width: 50,
-                        ),
-                        Container(
-                          width: 25,
-                          color: Colors.transparent,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text('R\$\ 5.523,90',
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold)),
-                            Text('gastos com manutenções')
-                          ],
-                        ),
-                      ],
-                    ),
+                    DashItem(
+                        imageName: 'tools.png',
+                        title: 'R\$\ 5.523,90',
+                        subtitle: 'gastos com manutenções'),
                   ])
             ],
           )

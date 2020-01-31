@@ -2,6 +2,7 @@ import 'package:caranger/pages/login/login_page.dart';
 import 'package:caranger/pages/login/store/login_store.dart';
 import 'package:caranger/pages/menu/menu_page.dart';
 import 'package:caranger/pages/menu/store/menu_store.dart';
+import 'package:caranger/stores/loading_store.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           Provider<LoginStore>(builder: (_) => LoginStore()),
-          Provider<MenuStore>(builder: (_) => MenuStore(),)
+          Provider<MenuStore>(builder: (_) => MenuStore(),),
+          Provider<LoadingStore>(builder: (_) => LoadingStore(),)
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
