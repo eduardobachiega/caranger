@@ -12,7 +12,8 @@ class CarangerApi {
     _client = CarangerClient(dio);
   }
 
-  Future<User> login(String user, String password) =>
-      _client.login(user, password);
-
+  Future<User> login(String user, String password) async {
+    final response = await _client.login(user, password);
+    return Future.value(response);
+  }
 }
