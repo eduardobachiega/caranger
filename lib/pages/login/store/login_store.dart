@@ -1,5 +1,7 @@
 import 'package:caranger/model/user.dart';
 import 'package:caranger/stores/api_store.dart';
+import 'package:caranger/widget/dialogs.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -20,6 +22,6 @@ abstract class LoginBase with Store {
   }
 
   proceed(BuildContext context) async{
-    await Navigator.of(context).pushNamed("/menu");
+    await Navigator.of(context).pushReplacementNamed("/menu");
   }
 }
