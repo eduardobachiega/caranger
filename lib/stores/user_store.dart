@@ -5,11 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-part 'login_store.g.dart';
+part 'user_store.g.dart';
 
-class LoginStore = LoginBase with _$LoginStore;
+class UserStore = UserBase with _$UserStore;
 
-abstract class LoginBase with Store {
+abstract class UserBase with Store {
   @observable
   User user;
 

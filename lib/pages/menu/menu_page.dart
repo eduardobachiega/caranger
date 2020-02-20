@@ -1,4 +1,4 @@
-import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/store/menu_store.dart';
 import 'package:caranger/pages/menu/tabs/home/home_tab.dart';
 import 'package:caranger/pages/menu/widgets/menu_widgets.dart';
@@ -18,12 +18,12 @@ class _MenuPageState extends State<MenuPage> {
   List<Widget> _children;
 
   MenuStore store;
-  LoginStore loginStore;
+  UserStore loginStore;
 
   @override
   Widget build(BuildContext context) {
     store = Provider.of<MenuStore>(context);
-    loginStore = Provider.of<LoginStore>(context);
+    loginStore = Provider.of<UserStore>(context);
 
     _children = [
       HomeTab(loginStore),

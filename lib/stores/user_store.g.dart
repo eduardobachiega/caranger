@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_store.dart';
+part of 'user_store.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'login_store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$LoginStore on LoginBase, Store {
-  final _$userAtom = Atom(name: 'LoginBase.user');
+mixin _$UserStore on UserBase, Store {
+  final _$userAtom = Atom(name: 'UserBase.user');
 
   @override
   User get user {
@@ -26,15 +26,15 @@ mixin _$LoginStore on LoginBase, Store {
     }, _$userAtom, name: '${_$userAtom.name}_set');
   }
 
-  final _$LoginBaseActionController = ActionController(name: 'LoginBase');
+  final _$UserBaseActionController = ActionController(name: 'UserBase');
 
   @override
   void login(BuildContext context, String user, String password) {
-    final _$actionInfo = _$LoginBaseActionController.startAction();
+    final _$actionInfo = _$UserBaseActionController.startAction();
     try {
       return super.login(context, user, password);
     } finally {
-      _$LoginBaseActionController.endAction(_$actionInfo);
+      _$UserBaseActionController.endAction(_$actionInfo);
     }
   }
 }

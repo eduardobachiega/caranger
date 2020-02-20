@@ -1,4 +1,4 @@
-import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/widget/default_input_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

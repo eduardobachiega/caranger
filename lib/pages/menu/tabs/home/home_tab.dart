@@ -1,4 +1,4 @@
-import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/tabs/home/widget/home_widgets.dart';
 import 'package:caranger/widget/circle_imageview.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +18,7 @@ class PlaceholderWidget extends StatelessWidget {
 }
 
 class HomeTab extends StatelessWidget {
-  final LoginStore store;
+  final UserStore store;
 
   HomeTab(this.store);
 

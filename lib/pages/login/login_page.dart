@@ -1,4 +1,4 @@
-import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/login/widget/login_widgets.dart';
 import 'package:caranger/stores/loading_store.dart';
 import 'package:caranger/widget/default_button.dart';
@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final focus = FocusNode();
-  LoginStore store;
+  UserStore store;
   LoadingStore loadingStore;
 
   void login(){
@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    store = Provider.of<LoginStore>(context);
+    store = Provider.of<UserStore>(context);
     loadingStore = Provider.of<LoadingStore>(context);
 
     return Scaffold(

@@ -1,5 +1,5 @@
 import 'package:caranger/pages/login/login_page.dart';
-import 'package:caranger/pages/login/store/login_store.dart';
+import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/menu_page.dart';
 import 'package:caranger/pages/menu/store/menu_store.dart';
 import 'package:caranger/stores/loading_store.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          Provider<LoginStore>(builder: (_) => LoginStore()),
+          Provider<UserStore>(builder: (_) => UserStore()),
           Provider<MenuStore>(builder: (_) => MenuStore(),),
           Provider<LoadingStore>(builder: (_) => LoadingStore(),)
         ],
