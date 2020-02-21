@@ -18,25 +18,31 @@ class MenuBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
         builder: (_) => BottomNavigationBar(
-          currentIndex: store.currentIndex,
-          onTap: onTabTapped,
-          items: [
-            BottomNavigationBarItem(
-              activeIcon: new Icon(Icons.home, color: Theme.of(context).primaryColor),
-              icon: new Icon(Icons.home, color: Colors.white),
-              title: new Text('Home', style: TextStyle(color: Colors.white)),
-            ),
-            BottomNavigationBarItem(
-              activeIcon: new Icon(Icons.mail, color: Theme.of(context).primaryColor),
-              icon: new Icon(Icons.mail, color: Colors.white),
-              title: new Text('Messages', style: TextStyle(color: Colors.white)),
-            ),
-            BottomNavigationBarItem(
-                activeIcon: new Icon(Icons.person, color: Theme.of(context).primaryColor),
-                icon: Icon(Icons.person, color: Colors.white),
-                title: Text('Profile', style: TextStyle(color: Colors.white)))
-          ],
-        ));
+              currentIndex: store.currentIndex,
+              onTap: onTabTapped,
+              items: [
+                BottomNavigationBarItem(
+                  activeIcon: new Icon(Icons.dashboard,
+                      color: Theme.of(context).primaryColor),
+                  icon: new Icon(Icons.dashboard, color: Colors.white70),
+                  title: new Text('Dashboard',
+                      style: TextStyle(color: Colors.white70)),
+                ),
+                BottomNavigationBarItem(
+                  activeIcon: new Icon(Icons.directions_car,
+                      color: Theme.of(context).primaryColor),
+                  icon: new Icon(Icons.directions_car, color: Colors.white70),
+                  title: new Text('Carros',
+                      style: TextStyle(color: Colors.white70)),
+                ),
+                BottomNavigationBarItem(
+                    activeIcon: new Icon(Icons.person,
+                        color: Theme.of(context).primaryColor),
+                    icon: Icon(Icons.person, color: Colors.white70),
+                    title:
+                        Text('Perfil', style: TextStyle(color: Colors.white70)))
+              ],
+            ));
   }
 }
 
@@ -45,7 +51,8 @@ class TabLoader extends StatelessWidget {
     Key key,
     @required List<Widget> children,
     @required this.store,
-  }) : _children = children, super(key: key);
+  })  : _children = children,
+        super(key: key);
 
   final List<Widget> _children;
   final MenuStore store;

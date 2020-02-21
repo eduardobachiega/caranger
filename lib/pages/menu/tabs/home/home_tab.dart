@@ -51,7 +51,7 @@ class HomeTab extends StatelessWidget {
             ),
           ]),
           Divider(color: Colors.transparent, height: 50),
-          CircleImageView('eduardo.jpeg', 150.0, 150.0, BoxFit.fill),
+          CircleImageView('eduardo.jpeg', 150.0, 150.0, BoxFit.fill, false),
           Divider(color: Colors.transparent, height: 50),
           Row(
             children: <Widget>[

@@ -9,15 +9,22 @@ class Car {
   String manufacturerName;
   String modelName;
   String color;
+  String image;
 
   Car(
       {this.id,
         this.manufacturerId,
         this.manufacturerName,
         this.modelName,
-        this.color
+        this.color,
+        this.image
       });
 
+
+  @override
+  String toString() {
+    return 'Car{id: $id, manufacturerId: $manufacturerId, manufacturerName: $manufacturerName, modelName: $modelName, color: $color, image: $image}';
+  }
 
   factory Car.fromJson(Map<String, dynamic> json) => _$CarFromJson(json);
 

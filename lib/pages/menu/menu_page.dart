@@ -1,3 +1,4 @@
+import 'package:caranger/pages/menu/tabs/cars/car_tab.dart';
 import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/store/menu_store.dart';
 import 'package:caranger/pages/menu/tabs/home/home_tab.dart';
@@ -27,7 +28,7 @@ class _MenuPageState extends State<MenuPage> {
 
     _children = [
       HomeTab(loginStore),
-      PlaceholderWidget(Colors.deepOrange),
+      CarTab(loginStore),
       PlaceholderWidget(Colors.green)
     ];
 

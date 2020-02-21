@@ -13,6 +13,7 @@ Car _$CarFromJson(Map<String, dynamic> json) {
     manufacturerName: json['manufacturerName'] as String,
     modelName: json['modelName'] as String,
     color: json['color'] as String,
+    image: json['image'] as String,
   );
 }
 
@@ -22,4 +23,5 @@ Map<String, dynamic> _$CarToJson(Car instance) => <String, dynamic>{
       'manufacturerName': instance.manufacturerName,
       'modelName': instance.modelName,
       'color': instance.color,
+      'image': instance.image,
     };
