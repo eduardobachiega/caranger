@@ -40,6 +40,12 @@ class _BounceAnimationState extends State<BounceAnimation>
   AnimationController _animationController;
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
 

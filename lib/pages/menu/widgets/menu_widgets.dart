@@ -1,12 +1,11 @@
 import 'package:caranger/pages/menu/store/menu_store.dart';
+import 'package:caranger/widget/fade_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class MenuBottomNavigationBar extends StatelessWidget {
-  const MenuBottomNavigationBar({
-    Key key,
-    @required this.store,
-  }) : super(key: key);
+  const MenuBottomNavigationBar({Key key, @required this.store})
+      : super(key: key);
 
   final MenuStore store;
 
@@ -47,11 +46,9 @@ class MenuBottomNavigationBar extends StatelessWidget {
 }
 
 class TabLoader extends StatelessWidget {
-  const TabLoader({
-    Key key,
-    @required List<Widget> children,
-    @required this.store,
-  })  : _children = children,
+  const TabLoader(
+      {Key key, @required List<Widget> children, @required this.store})
+      : _children = children,
         super(key: key);
 
   final List<Widget> _children;

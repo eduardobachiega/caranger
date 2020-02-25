@@ -1,3 +1,4 @@
+import 'package:caranger/model/car.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:caranger/model/user.dart';
@@ -12,4 +13,7 @@ abstract class CarangerClient {
   @POST("user/login")
   Future<User> login(@Field("user") String user,
       @Field("password") String password);
+
+  @GET("car/{id}/details")
+  Future<Car> getCarDetails(@Path("id") int carId);
 }

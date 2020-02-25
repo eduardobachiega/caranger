@@ -1,6 +1,8 @@
 import 'package:caranger/model/car.dart';
+import 'package:caranger/pages/car/car_detail_page.dart';
 import 'package:caranger/widget/circle_imageview.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CarList extends StatelessWidget {
   final BuildContext context;
@@ -18,10 +20,18 @@ class CarList extends StatelessWidget {
         });
   }
 
+  void onCardTap(Car car) {
+    Navigator.push(context, PageTransition(
+        type: PageTransitionType.fade,
+        child: CarDetailPage(title: "${car.manufacturerName} ${car.modelName}", car: car)
+    ));
+  }
+
   Widget _buildRow(Car car) {
     return Card(
       color: Colors.blueGrey[900],
       child: InkWell(
+        onTap: () => onCardTap(car),
         splashColor: Colors.cyanAccent.withAlpha(30),
         child: Container(
             child: Padding(

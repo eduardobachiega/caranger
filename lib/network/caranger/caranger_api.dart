@@ -1,3 +1,4 @@
+import 'package:caranger/model/car.dart';
 import 'package:caranger/model/user.dart';
 import 'package:dio/dio.dart';
 import 'package:caranger/network/caranger/caranger_client.dart';
@@ -14,6 +15,11 @@ class CarangerApi {
 
   Future<User> login(String user, String password) async {
     final response = await _client.login(user, password);
+    return Future.value(response);
+  }
+
+  Future<Car> getCarDetail(int carId) async {
+    final response = await _client.getCarDetails(carId);
     return Future.value(response);
   }
 }

@@ -1,3 +1,5 @@
+import 'package:caranger/pages/car/car_detail_page.dart';
+import 'package:caranger/pages/car/store/car_detail_store.dart';
 import 'package:caranger/pages/login/login_page.dart';
 import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/menu_page.dart';
@@ -37,7 +39,8 @@ class MyApp extends StatelessWidget {
         providers: [
           Provider<UserStore>(builder: (_) => UserStore()),
           Provider<MenuStore>(builder: (_) => MenuStore(),),
-          Provider<LoadingStore>(builder: (_) => LoadingStore(),)
+          Provider<LoadingStore>(builder: (_) => LoadingStore(),),
+          Provider<CarDetailStore>(builder: (_) => CarDetailStore(),)
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
