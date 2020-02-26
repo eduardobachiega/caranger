@@ -1,5 +1,4 @@
-import 'package:caranger/pages/car/car_detail_page.dart';
-import 'package:caranger/pages/car/store/car_detail_store.dart';
+import 'package:caranger/pages/car/store/car_details_store.dart';
 import 'package:caranger/pages/login/login_page.dart';
 import 'package:caranger/stores/user_store.dart';
 import 'package:caranger/pages/menu/menu_page.dart';
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
           Provider<UserStore>(builder: (_) => UserStore()),
           Provider<MenuStore>(builder: (_) => MenuStore(),),
           Provider<LoadingStore>(builder: (_) => LoadingStore(),),
-          Provider<CarDetailStore>(builder: (_) => CarDetailStore(),)
+          Provider<CarDetailsStore>(builder: (_) => CarDetailsStore(),)
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
               primaryColor: Color(0xFFCE5834),
               accentColor: Color(0xFFCE5834),
               primaryColorDark: Color(0xFF161C20),
-              primaryColorLight: Color(0xFF323C44),
+              primaryColorLight: Colors.blueGrey[900],
               cursorColor: Color(0xFFCE5834),
               textTheme: TextTheme(
                   body1: TextStyle(color: Colors.white),

@@ -29,10 +29,10 @@ class CarList extends StatelessWidget {
 
   Widget _buildRow(Car car) {
     return Card(
-      color: Colors.blueGrey[900],
+      color: Theme.of(context).primaryColorLight,
       child: InkWell(
         onTap: () => onCardTap(car),
-        splashColor: Colors.cyanAccent.withAlpha(30),
+        splashColor: Theme.of(context).primaryColor,
         child: Container(
             child: Padding(
                 padding: EdgeInsets.all(10),

@@ -20,8 +20,6 @@ class HistoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("ITEMS: $historyItems");
-
     return ListView.builder(
         padding: const EdgeInsets.all(5.0),
         itemCount: historyItems.length,
@@ -36,10 +34,10 @@ class HistoryList extends StatelessWidget {
 
   Widget _buildRow(History historyItem) {
     return Card(
-      color: Colors.blueGrey[900],
+      color: Theme.of(context).primaryColorLight,
       child: InkWell(
         onTap: () => onCardTap(historyItem),
-        splashColor: Colors.cyanAccent.withAlpha(30),
+        splashColor: Theme.of(context).primaryColor,
         child: Container(
             child: Padding(
                 padding: EdgeInsets.all(10),
@@ -51,12 +49,16 @@ class HistoryList extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context).primaryColor, fontSize: 22),
                     ),
+                    Divider(color: Colors.transparent,),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Flexible(
                             child: Text("${historyItem.local}"),
                           ),
+                          Flexible (
+                            child: Text("R\$ ${historyItem.price}"),
+                          )
                         ])
                   ],
                 ))),
