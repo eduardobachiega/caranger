@@ -3,7 +3,6 @@ import 'package:caranger/pages/car/store/car_details_store.dart';
 import 'package:caranger/pages/car/tabs/history/history_tab.dart';
 import 'package:caranger/pages/car/tabs/info/info_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 class CarHeader extends StatefulWidget {
@@ -28,7 +27,9 @@ class _CarHeaderState extends State<CarHeader>
 
     print("CAR: ${widget.car}");
     tabs = [
-      InfoTab(),
+      InfoTab(
+        car: widget.car,
+      ),
       HistoryTab(
         historyItems: widget.car.history,
       )
@@ -41,28 +42,26 @@ class _CarHeaderState extends State<CarHeader>
 
     return NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          print("REBUILD");
           return <Widget>[
-            Observer(
-                builder: (_) =>
-                    SliverAppBar(
-                      iconTheme:
-                          IconThemeData(color: store.closed ? Colors.white : Theme.of(context).primaryColor),
-                      expandedHeight: 200.0,
-                      floating: true,
-                      pinned: true,
-                      flexibleSpace: FlexibleSpaceBar(
-                          centerTitle: true,
-                          title: Text(
-                              "${widget.car.manufacturerName} ${widget.car.modelName}",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                              )),
-                          background: Image.network(
-                            widget.car.image,
-                            fit: BoxFit.cover,
-                          )),
-                    )),
+            SliverAppBar(
+              iconTheme: IconThemeData(color: Colors.grey[300]),
+              expandedHeight: 200.0,
+              floating: true,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Text(
+                      "${widget.car.manufacturerName} ${widget.car.modelName}",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      )),
+                  background: Image.network(
+                    widget.car.image,
+                    fit: BoxFit.cover,
+                  )),
+            ),
             SliverPersistentHeader(
               delegate: _SliverAppBarDelegate(
                   TabBar(
@@ -103,11 +102,6 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    print("S: $shrinkOffset O: $overlapsContent");
-
-    if (shrinkOffset == 0.0)
-      store.updateAppBarStatus(overlapsContent);
-
     return new Container(
       color: Theme.of(context).primaryColorDark,
       child: _tabBar,
@@ -116,6 +110,6 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return false;
+    return true;
   }
 }

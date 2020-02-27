@@ -1,4 +1,5 @@
 import 'package:caranger/model/history.dart';
+import 'package:caranger/widget/dialogs.dart';
 import 'package:flutter/material.dart';
 
 class HistoryTab extends StatelessWidget {
@@ -29,7 +30,17 @@ class HistoryList extends StatelessWidget {
   }
 
   void onCardTap(History historyItem) {
-
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return Dialogs(
+            widthDialog: 280.0,
+            title: "Informações",
+            text: historyItem.description,
+            buttonText: "OK",
+          );
+        });
   }
 
   Widget _buildRow(History historyItem) {
